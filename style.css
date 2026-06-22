@@ -266,7 +266,7 @@ img {
 }
 
 .tour {
-  min-height: 780px;
+  min-height: 840px;
   padding-top: 86px;
 }
 
@@ -319,7 +319,7 @@ img {
 
 .photo--summer-4 {
   right: 52px;
-  top: 664px;
+  top: 704px;
   width: 143px;
   height: 107px;
 }
@@ -681,6 +681,19 @@ img {
 @media (max-width: 360px) {
   .copy {
     letter-spacing: 0.6px;
+  }
+
+  .tour {
+    min-height: 850px;
+  }
+
+  .tour--foreign {
+    min-height: 780px;
+  }
+
+  .photo--summer-4 {
+    right: 20px;
+    top: 712px;
   }
 
   .calendar-grid {
