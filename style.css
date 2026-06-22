@@ -363,6 +363,22 @@ img {
   color: var(--orange);
   font-size: 8px;
   cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.pill-button:hover,
+.pill-button:focus-visible {
+  background: var(--orange);
+  color: var(--sand);
+}
+
+#viewMoreButton {
+  top: 637px;
+  right: auto;
+  bottom: auto;
+  left: 20px;
 }
 
 .view-more {
