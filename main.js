@@ -48,6 +48,25 @@ window.addEventListener("DOMContentLoaded", () => {
 
     viewMore.hidden = true;
     viewMoreButton?.setAttribute("aria-expanded", "false");
-    document.getElementById("foreign")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    document
+      .getElementById("foreign")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+});
+const calendar4 = document.getElementById("calendar4");
+const calendar5 = document.getElementById("calendar5");
+
+monthTabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    monthTabs.forEach((t) => t.classList.remove("active"));
+    tab.classList.add("active");
+
+    if (tab.dataset.month === "4") {
+      calendar4?.classList.add("active");
+      calendar5?.classList.remove("active");
+    } else {
+      calendar4?.classList.remove("active");
+      calendar5?.classList.add("active");
+    }
   });
 });
