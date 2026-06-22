@@ -685,6 +685,56 @@ img {
   margin: 0 0 6px;
 }
 
+.footer__social {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.footer__social-icon {
+  position: relative;
+  display: inline-grid;
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
+  place-items: center;
+}
+
+.footer__social-icon--instagram {
+  border: 2px solid currentColor;
+  border-radius: 4px;
+}
+
+.footer__social-icon--instagram::before {
+  width: 5px;
+  height: 5px;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  content: "";
+}
+
+.footer__social-icon--instagram::after {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 2px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  content: "";
+}
+
+.footer__social-icon--x {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.footer__social-logo {
+  border-radius: 999px;
+  object-fit: contain;
+}
+
 @keyframes spin {
   from {
     transform: rotate(0deg);
