@@ -60,7 +60,9 @@ img {
   justify-content: center;
   gap: 24px;
   background: var(--cream);
-  transition: opacity 0.7s ease, visibility 0.7s ease;
+  transition:
+    opacity 0.7s ease,
+    visibility 0.7s ease;
 }
 
 #opening.is-hidden {
@@ -176,7 +178,9 @@ img {
   background: var(--cream);
   transform: translate(-50%, -110%);
   opacity: 0;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
 }
 
 .drawer.is-open {
@@ -584,6 +588,17 @@ img {
 
 .calendar-days .muted {
   color: var(--sand);
+}
+.calendar-month {
+  display: none;
+}
+
+.calendar-month.active {
+  display: block;
+}
+
+.month-tabs span {
+  cursor: pointer;
 }
 
 .legend {
