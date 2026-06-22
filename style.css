@@ -375,10 +375,10 @@ img {
 }
 
 #viewMoreButton {
-  top: 637px;
-  right: auto;
+  top: 748px;
+  right: 20px;
   bottom: auto;
-  left: 20px;
+  left: auto;
 }
 
 .view-more {
