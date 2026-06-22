@@ -8,6 +8,9 @@ window.addEventListener("DOMContentLoaded", () => {
   const viewMore = document.getElementById("viewMore");
   const viewMoreButton = document.getElementById("viewMoreButton");
   const closeMoreButton = document.getElementById("closeMoreButton");
+  const monthTabs = document.querySelectorAll(".month-tabs span");
+  const calendar4 = document.getElementById("calendar4");
+  const calendar5 = document.getElementById("calendar5");
 
   setTimeout(() => {
     opening?.classList.add("is-hidden");
@@ -52,21 +55,14 @@ window.addEventListener("DOMContentLoaded", () => {
       .getElementById("foreign")
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
   });
-});
-const calendar4 = document.getElementById("calendar4");
-const calendar5 = document.getElementById("calendar5");
 
-monthTabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    monthTabs.forEach((t) => t.classList.remove("active"));
-    tab.classList.add("active");
+  monthTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      monthTabs.forEach((t) => t.classList.remove("active"));
+      tab.classList.add("active");
 
-    if (tab.dataset.month === "4") {
-      calendar4?.classList.add("active");
-      calendar5?.classList.remove("active");
-    } else {
-      calendar4?.classList.remove("active");
-      calendar5?.classList.add("active");
-    }
+      calendar4?.classList.toggle("active", tab.dataset.month === "4");
+      calendar5?.classList.toggle("active", tab.dataset.month === "5");
+    });
   });
 });
