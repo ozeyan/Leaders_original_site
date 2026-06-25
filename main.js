@@ -104,4 +104,4 @@ window.addEventListener("DOMContentLoaded", () => {
       calendar5?.classList.toggle("active", tab.dataset.month === "5");
     });
   });
-};);
+});
