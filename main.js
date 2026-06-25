@@ -12,10 +12,49 @@ window.addEventListener("DOMContentLoaded", () => {
   const calendar4 = document.getElementById("calendar4");
   const calendar5 = document.getElementById("calendar5");
 
+  // =========================
+  // opening control
+  // =========================
+  const MIN_OPENING_TIME = 2600; // 最低表示時間(ms)
+  const OPENING_FADE_TIME = 700; // CSS transition に合わせる
+
+  const openingStart = performance.now();
+  let pageLoaded = false;
+  let minimumTimePassed = false;
+  let openingClosed = false;
+
+  const closeOpening = () => {
+    if (!opening || openingClosed) return;
+    openingClosed = true;
+
+    opening.classList.add("is-hidden");
+    setTimeout(() => opening.remove(), OPENING_FADE_TIME);
+  };
+
+  const tryCloseOpening = () => {
+    if (pageLoaded && minimumTimePassed) {
+      closeOpening();
+    }
+  };
+
+  // 最低表示時間の経過を待つ
   setTimeout(() => {
-    opening?.classList.add("is-hidden");
-    setTimeout(() => opening?.remove(), 700);
-  }, 2600);
+    minimumTimePassed = true;
+    tryCloseOpening();
+  }, MIN_OPENING_TIME);
+
+  // ページ全体の読み込み完了を待つ
+  const handleLoaded = () => {
+    pageLoaded = true;
+    tryCloseOpening();
+  };
+
+  if (document.readyState === "complete") {
+    // すでに load 済みなら即反映
+    handleLoaded();
+  } else {
+    window.addEventListener("load", handleLoaded, { once: true });
+  }
 
   const setMenuOpen = (open) => {
     drawer?.classList.toggle("is-open", open);
@@ -65,4 +104,4 @@ window.addEventListener("DOMContentLoaded", () => {
       calendar5?.classList.toggle("active", tab.dataset.month === "5");
     });
   });
-});
+};);
